@@ -1,0 +1,28 @@
+{
+  "name": "js_example",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "asserts": "^4.0.2",
+    "chromedriver": "^96.0.0",
+    "geckodriver": "^2.0.4",
+    "selenium-webdriver": "^4.1.0"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^8.0.0-rc.1",
+    "cucumber": "^7.0.0-rc.0",
+    "cypress": "^9.1.0",
+    "jasmine": "^3.10.0",
+    "jasmine-browser-runner": "^0.10.0",
+    "jasmine-core": "^3.10.1"
+  }
+}

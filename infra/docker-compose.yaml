@@ -1,0 +1,81 @@
+version: "3.9"
+
+services:
+
+  db:
+    image: postgres:11-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: always
+    environment:
+      - POSTGRES_DB=healenium
+      - POSTGRES_USER=healenium_user
+      - POSTGRES_PASSWORD=YDk2nmNs4s9aCP6K
+    networks:
+      - healenium
+
+  healenium:
+    image: healenium/hlm-backend:3.2.0
+    container_name: healenium
+    ports:
+      - "7878:7878"
+    links:
+      - db
+    environment:
+      - SPRING_CONTAINER_NAME=healenium
+      - SPRING_POSTGRES_DB=healenium
+      - SPRING_POSTGRES_USER=healenium_user
+      - SPRING_POSTGRES_PASSWORD=YDk2nmNs4s9aCP6K
+      - SPRING_POSTGRES_URL=jdbc:postgresql://db:5432/healenium?currentSchema=healenium
+    networks:
+      - healenium
+
+  selector-imitator:
+    image: healenium/hlm-selector-imitator:1
+    container_name: selector-imitator
+    restart: on-failure
+    ports:
+      - "8000:8000"
+    networks:
+      - healenium
+
+  hlm-proxy:
+    image: healenium/hlm-proxy:0.2.1
+    container_name: hlm-proxy
+    ports:
+      - "8085:8085"
+    volumes:
+      - docker-log-volume:/var/log/dockerlogs
+    environment:
+      - "recovery-tries=1"
+      - "score-cap=.6"
+      - "heal-enabled=true"
+      - "serverHost=localhost"
+      - "serverPort=7878"
+      - "imitatePort=8000"
+    networks:
+      - healenium
+
+  hlm-selenium-3-standalone-tigervnc:
+    #    image: healenium/hlm-selenium-4-standalone-xpra:0.1.1       #для версии XPRA селениум 4.0.0-rc-1
+    #image: healenium/hlm-selenium-4-standalone-xpra:1.0
+    image: healenium/hlm-selenium-3-standalone-tigervnc:0.1.0    #для версии vnc селениум 3.141.59
+
+    restart: on-failure
+    container_name: hlm-selenium-3-standalone-tigervnc
+    ports:
+      - "4444:4444"
+      - "8086:6080"
+    #      - "8086:10000"
+    volumes:
+      - docker-log-volume:/var/log/dockerlogs
+    networks:
+      - healenium
+
+volumes:
+  docker-log-volume:
+
+networks:
+  healenium:

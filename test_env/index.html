@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Healenium Test</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+<div class="healenium test fields">
+    <div class="container-healenium">
+
+            <span class="healenium-form-title">Healenium Test Fields</span>
+            <span class="healenium-form-subtitle">All fields locators will be changed after click on button</span>
+
+        <div class="healenium-form validate-form">
+            <div class="container-healenium-form-btn">
+                <button class="healenium-form-btn" id="submit_alert" name="random_alert" onclick="hlmWait()">
+						<span>
+							Generate alert
+							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+						</span>
+                </button>
+            </div>
+
+            <div class="wrap-input1 validate-input" data-validate="Name is required">
+                <input class="input1 hlm_hover" type="text" name="Field1" id="change_id"
+                       placeholder="Change: Id and TagName">
+                <span class="shadow-input1"></span>
+                <child_tag class="shadow-input1" id="change_element_last_child"/>
+            </div>
+
+            <div class="wrap-input1 validate-input">
+                <input class="test_class" type="text" name="Field2" id="change_className"
+                       placeholder="Change: ClassName">
+                <span class="shadow-input1"></span>
+            </div>
+
+            <div class="wrap-input1 validate-input" id="descendant_change">
+                <test_tag class="shadow-input1" id="change_element"></test_tag>
+                <input class="input1" type="text" id="change_below_element" placeholder="Change: TagName">
+            </div>
+
+            <div class="wrap-input1 validate-input">
+                <textarea class="input1" type="text" id="change_enabled" placeholder="Change: Enabled to disabled"></textarea>
+                <span class="shadow-input1"></span>
+            </div>
+
+<!--            checkbox disabled-->
+            <div class="wrap-input1 validate-input">
+                <input class="input1" type="checkbox" id="change_disabled" placeholder="Change: Disabled to enabled" disabled>
+                <span class="shadow-input1"></span>
+            </div>
+
+            <div class="wrap-input1 validate-input">
+                <input class="input1" type="checkbox" id="change_checked" placeholder="Change: Checked to unchecked" checked>
+                <span class="shadow-input1"></span>
+            </div>
+
+            <div class="wrap-input1 validate-input">
+                <input class="input1" type="text" id="change:name" placeholder="Change: Name"
+                name="change_name">
+                <span class="shadow-input1"></span>
+            </div>
+
+            <div class="wrap-input1 validate-input">
+                <a class="input1" id="change_links" href="https://healenium.io/">Change: LinkText, PartialLinkText</a>
+            </div>
+
+            <div class="container-healenium-form-btn">
+                <button class="healenium-form-btn" id="Submit" name="change_fields" onclick="showValidate()">
+						<span>
+							Change locators
+							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+						</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--===============================================================================================-->
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/tilt/tilt.jquery.min.js"></script>
+<script>
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+
+</script>
+
+<!--===============================================================================================-->
+<script src="js/main.js"></script>
+
+</body>
+</html>
