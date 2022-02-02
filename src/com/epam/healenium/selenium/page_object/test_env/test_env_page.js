@@ -4,7 +4,7 @@ import {Strategy, StrategyManager} from "../../strategy/strategy.js";
 import {Base_page} from "../base_page.js";
 
 class Test_env_page extends Base_page {
-    testPage = "http://localhost:63343/js_example/test_env/index.html?_ijt=f7arlhpq0tvle2ruo2a3gj48b1";
+    testPage = "/test_env/index.html";
 
     submitButton = By.id("Submit");
 
