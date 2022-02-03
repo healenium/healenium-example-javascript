@@ -5,7 +5,7 @@
   "description": "",
   "main": "src/index.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jasmine-browser-runner runSpecs",
     "start": "node src/index.mjs"
   },
   "keywords": [],

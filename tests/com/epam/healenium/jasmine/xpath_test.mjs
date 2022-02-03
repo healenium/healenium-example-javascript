@@ -9,19 +9,15 @@ describe('Tests healing locators using different types of XPath', function () {
     let driver;
     let testEnv;
     beforeAll(async function () {
+        let opts = new chrome.Options();
+        opts.addArguments('no-sandbox')
         driver = await new webdriver.Builder()
             .withCapabilities(webdriver.Capabilities.chrome())
+            .usingServer('http://localhost:8085')
+            .setChromeOptions(opts)
             .build();
-        await driver.manage().window().maximize();
 
         testEnv = await new Test_env_page(driver);
-        // let opts = new chrome.Options();
-        // opts.addArguments('no-sandbox')
-        // driver = await new webdriver.Builder()
-        //     .withCapabilities(webdriver.Capabilities.chrome())
-        //     .usingServer('http://localhost:8085')
-        //     .setChromeOptions(opts)
-        //     .build();
     })
 
     afterAll(async function () {

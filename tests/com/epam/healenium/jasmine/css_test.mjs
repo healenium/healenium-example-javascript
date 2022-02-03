@@ -7,21 +7,17 @@ import {Callback_page} from "../../../../../src/com/epam/healenium/selenium/page
 
 // Total count of tests = 9
 describe('Tests healing locators using different CSS selectors', function () {
-    var driver;
+    let driver;
     let testEnv;
     let callBack;
     beforeAll(async function () {
+        let opts = new chrome.Options();
+        opts.addArguments('no-sandbox')
         driver = await new webdriver.Builder()
             .withCapabilities(webdriver.Capabilities.chrome())
+            .usingServer('http://localhost:8085')
+            .setChromeOptions(opts)
             .build();
-
-        // let opts = new chrome.Options();
-        // opts.addArguments('no-sandbox')
-        // driver = await new webdriver.Builder()
-        //     .withCapabilities(webdriver.Capabilities.chrome())
-        //     .usingServer('http://localhost:8085')
-        //     .setChromeOptions(opts)
-        //     .build();
 
         testEnv = await new Test_env_page(driver);
         callBack = await new Callback_page(driver);
