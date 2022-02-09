@@ -8,6 +8,14 @@ This repository contains automation tests on JavaScript using Healenium.
 
 ```docker-compose up -d```
 
+To download this file into your project use this command:
+
+```$ curl https://raw.githubusercontent.com/healenium/healenium-example-javascript/master/infra/docker-compose.yml -o docker-compose.yml```
+
+Create /db/sql folder on the same level in your project. Add init.sql file into ./db/sql/init.sql folder in your project via command:
+
+```$ curl https://raw.githubusercontent.com/healenium/healenium-client/master/example/init.sql -o init.sql```
+
 Verify the next images are up and running:
 * ```healenium/hlm-proxy:0.2.1```
 * ```healenium/hlm-backend:3.2.0```
