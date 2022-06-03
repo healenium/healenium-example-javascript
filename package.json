@@ -21,7 +21,7 @@
     "@cucumber/cucumber": "^8.0.0-rc.1",
     "cucumber": "^7.0.0-rc.0",
     "cypress": "^9.1.0",
-    "jasmine": "^3.10.0",
+    "jasmine": "^3.99.0",
     "jasmine-browser-runner": "^0.10.0",
     "jasmine-core": "^3.10.1"
   }
