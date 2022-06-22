@@ -7,6 +7,7 @@ This repository contains automation tests on JavaScript using Healenium.
 ```cd infra```
 
 ```docker-compose up -d```
+or ```docker-compose -f docker-compose-selenium-v3.yaml up -d```
 
 To download this file into your project use this command:
 
