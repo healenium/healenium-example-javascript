@@ -17,11 +17,10 @@ Create /db/sql folder on the same level in your project. Add init.sql file into 
 ```$ curl https://raw.githubusercontent.com/healenium/healenium-client/master/example/init.sql -o init.sql```
 
 Verify the next images are up and running:
-* ```healenium/hlm-proxy:0.2.1```
-* ```healenium/hlm-backend:3.2.0```
-* ```healenium/hlm-selenium-3-standalone-tigervnc:0.1.1```
-* ```healenium/hlm-selector-imitator:1```
-* ```postgres:11-alpine```
+* ```healenium/hlm-proxy:0.2.5.2```
+* ```healenium/hlm-backend:3.2.2```
+* ```healenium/hlm-selector-imitator:1.1```
+* ```postgres:14.2-bullseye```
 
 ### 2. Project structure
 
@@ -78,6 +77,6 @@ Run your tests
 `npm test`
 
 ### 5. Monitoring results
-You can monitor tests running. To do this go to ```http://<remote webdriver host>:8086```
+You can monitor tests running. To do this go to ```http://localhost:8080```
 
 ![img.png](img.png)
