@@ -21,7 +21,7 @@ To work with Healenium and standard Selenium hub with nodes, use:</br>
     <b>$ curl https://raw.githubusercontent.com/healenium/healenium-example-javascript/master/infra/docker-compose-selenium-v3.yaml -o docker-compose-selenium-v3.yaml</b>
 </pre>
 
-Create <b>/db/sql</b> folder on the same level in your project.</br>\
+Create <b>/db/sql</b> folder on the same level in your project.</br>
 <pre>
     Add init.sql file into ./db/sql/init.sql folder in your project via command:
 
@@ -45,23 +45,28 @@ Verify the next images are <b>Up</b> and <b>Running</b>
                 |__sql
                     |__init.sql
             |__docker-compose.yaml
+            |__docker-compose-selenium-v3.yaml
         |__src
-            |__com.epam.healenium
-                |__selenium
-                    |__page object
-                        |__test_env
-                            |__test_env_page.js
-                        |__base_page.js
-                        |__callback_page.js
-                    |__strategy
-                        |__locators_type.js
-                        |__strategy.js
+            |__Healenium.Selenium
+                |__constants
+                |__pages
+                |__Properties
+                |__search
+                |__Healenium.Selenium.csproj
+                |__packages.config
         |__tests
-            |__com.epam.healenium
-                |__jasmine
-                    |__css_test.mjs
-                    |__semantic-locators_test.mjs
-                    |__xpath_test.mjs
+            |__Healenium.Selenium.Tests
+                |__Properties
+                |__tests
+                |__Healenium.Selenium.Tests.csproj
+                |__packages.config
+            |__Healenium.SeleniumRP.Tests
+                |__Properties
+                |__tests
+                |__app.config
+                |__Healenium.SeleniumRP.Tests.csproj
+                |__packages.config
+                |__ReportPortal.config.json
 
 ### 3. Create RemoteWebDriver for Healenium-Proxy
 To run using Healenium create RemoteWebDriver with URL ```http://<remote webdriver host>:8085```:
@@ -93,6 +98,7 @@ Run your tests
 `npm test`
 
 ### 5. Monitoring results
-You can monitor tests running. To do this go to ```http://localhost:8080```
-
-![img.png](img.png)
+You can monitor tests running if you using Healenium with Selenoid plus Selenoid Ui, use:</br>
+<pre>
+    go to <b>http://localhost:8080</b>
+</pre>
