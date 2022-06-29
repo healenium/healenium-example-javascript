@@ -3,32 +3,47 @@ This repository contains automation tests on JavaScript using Healenium.
 
 ## How to start
 ### 1. Start Healenium Proxy from infra folder
+```cd infra``` </br></br>
+To work with Healenium and Selenoid plus Selenoid Ui, use:</br>
+<pre>
+    <b>docker-compose up -d</b>
 
-```cd infra```
+    To download docker-compose.yaml file into your project use this command:
 
-```docker-compose up -d```
-or ```docker-compose -f docker-compose-selenium-v3.yaml up -d```
+    <b>$ curl https://raw.githubusercontent.com/healenium/healenium-example-javascript/master/infra/docker-compose.yaml -o docker-compose.yaml</b>
+</pre>
+To work with Healenium and standard Selenium hub with nodes, use:</br>
+<pre>
+    <b>docker-compose -f docker-compose-selenium-v3.yaml up -d</b>
 
-To download this file into your project use this command:
+    To download docker-compose-selenium-v3.yaml file into your project use this command:
 
-```$ curl https://raw.githubusercontent.com/healenium/healenium-example-javascript/master/infra/docker-compose.yml -o docker-compose.yml```
+    <b>$ curl https://raw.githubusercontent.com/healenium/healenium-example-javascript/master/infra/docker-compose-selenium-v3.yaml -o docker-compose-selenium-v3.yaml</b>
+</pre>
 
-Create /db/sql folder on the same level in your project. Add init.sql file into ./db/sql/init.sql folder in your project via command:
+Create <b>/db/sql</b> folder on the same level in your project.</br>\
+<pre>
+    Add init.sql file into ./db/sql/init.sql folder in your project via command:
 
-```$ curl https://raw.githubusercontent.com/healenium/healenium-client/master/example/init.sql -o init.sql```
-
-Verify the next images are up and running:
-* ```healenium/hlm-proxy:0.2.5.2```
-* ```healenium/hlm-backend:3.2.2```
-* ```healenium/hlm-selector-imitator:1.1```
-* ```postgres:14.2-bullseye```
+    <b>$ curl https://raw.githubusercontent.com/healenium/healenium-client/master/example/init.sql -o init.sql</b>
+</pre>
+Verify the next images are <b>Up</b> and <b>Running</b>
+<pre>
+    * postgres:14.2-bullseye
+    * healenium/hlm-backend:3.2.3
+    * healenium/hlm-selector-imitator:1.1
+    * healenium/hlm-proxy:1.0.0
+    * healenium/hlm-selenoid:0.1.0
+    * aerokube/selenoid-ui:1.10.5
+</pre>
 
 ### 2. Project structure
 
-    |__root folder
+    |__healenium-example-javascript (root)
         |__infra
             |__db
-                |__init.sql
+                |__sql
+                    |__init.sql
             |__docker-compose.yaml
         |__src
             |__com.epam.healenium
