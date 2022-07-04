@@ -51,15 +51,13 @@ Create <b>/db/sql</b> folder on the same level in your project.<br/>
 
         <b>docker-compose up -d</b>
 
-Verify the next images are <b>Up</b> and <b>Running</b>
-<pre>
-    * postgres:14.2-bullseye
-    * healenium/hlm-backend:3.2.3
-    * healenium/hlm-selector-imitator:1.1
-    * healenium/hlm-proxy:1.0.0
-    * healenium/hlm-selenoid:0.1.0
-    * aerokube/selenoid-ui:1.10.5
-</pre>
+    Verify the next images are <b>Up</b> and <b>Running</b>
+        * postgres:14.2-bullseye
+        * healenium/hlm-backend:3.2.3
+        * healenium/hlm-selector-imitator:1.1
+        * healenium/hlm-proxy:1.0.0
+        * healenium/hlm-selenoid:0.1.0
+        * aerokube/selenoid-ui:1.10.5
 </pre>
 To work with Healenium and standard Selenium hub with nodes, use:<br/>
 <pre>
@@ -79,6 +77,14 @@ To work with Healenium and standard Selenium hub with nodes, use:<br/>
     Command to run docker-compose-selenium-v3.yaml
 
         <b>docker-compose -f docker-compose-selenium-v3.yaml up -d</b>
+
+    Verify the next images are <b>Up</b> and <b>Running</b>
+        * postgres:14.2-bullseye
+        * healenium/hlm-backend:3.2.3
+        * healenium/hlm-selector-imitator:1.1
+        * healenium/hlm-proxy:1.0.0
+        * healenium/hlm-selenoid:0.1.0
+        * aerokube/selenoid-ui:1.10.5
 </pre>
 
 ### 2. Create RemoteWebDriver for Healenium-Proxy
