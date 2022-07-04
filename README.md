@@ -53,6 +53,7 @@ To work with Healenium and Selenoid plus Selenoid Ui, use:<br/>
 
         <b>docker-compose up -d</b>
 
+    <b>ATTENTION</b>
     Verify the next images are <b>Up</b> and <b>Running</b>
         * postgres:14.2-bullseye
         * healenium/hlm-backend:3.2.3
@@ -80,6 +81,7 @@ To work with Healenium and standard Selenium hub with nodes, use:<br/>
 
         <b>docker-compose -f docker-compose-selenium-v3.yaml up -d</b>
 
+    <b>ATTENTION</b>
     Verify the next images are <b>Up</b> and <b>Running</b>
         * postgres:14.2-bullseye
         * healenium/hlm-backend:3.2.3
