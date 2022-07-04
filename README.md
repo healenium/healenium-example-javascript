@@ -1,5 +1,5 @@
 # JavaScript Example with Healenium
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)<br/>
 This repository contains automation tests on JavaScript using Healenium.
 
 ## How to start
