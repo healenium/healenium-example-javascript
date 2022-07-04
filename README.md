@@ -7,8 +7,6 @@ This repository contains automation tests on JavaScript using Healenium.
 ```cd infra``` <br/><br/>
 To work with Healenium and Selenoid plus Selenoid Ui, use:<br/>
 <pre>
-    <b>docker-compose up -d</b>
-
     To download docker-compose.yaml file into your project use this command:
 
     <b>$ curl https://raw.githubusercontent.com/healenium/healenium-example-javascript/master/infra/docker-compose.yaml -o docker-compose.yaml</b>
@@ -33,7 +31,10 @@ To work with Healenium and Selenoid plus Selenoid Ui, use:<br/>
                         |__init.sql
                 |__browsers.json
                 |__docker-compose.yaml
-    
+
+    Command to run docker-compose.yaml
+
+        <b>docker-compose up -d</b>
 </pre>
 To work with Healenium and standard Selenium hub with nodes, use:<br/>
 <pre>
