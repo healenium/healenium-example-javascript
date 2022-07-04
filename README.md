@@ -123,19 +123,27 @@ let driver = await builder.usingServer(NODE_URL).build();
 ### 3.Run tests using Jasmine
 Add Jasmine to your package.json
 
-`npm install --save-dev jasmine`
+<pre>
+npm install --save-dev jasmine
+</pre>
 
 Initialize Jasmine in your project
 
-`npx jasmine init`
+<pre>
+npx jasmine init
+</pre>
 
 Set jasmine as your test script in your package.json
 
-`"scripts": { "test": "jasmine" }`
+<pre>
+"scripts": { "test": "jasmine" }
+</pre>
 
 Run your tests
 
-`npm test`
+<pre>
+npm test
+</pre>
 
 ### 4.Monitoring results
 You can monitor tests running if you using Healenium with Selenoid plus Selenoid Ui, use:<br/>
