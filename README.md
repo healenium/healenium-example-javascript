@@ -23,6 +23,16 @@ To work with Healenium and Selenoid plus Selenoid Ui, use:<br/>
     <b>docker pull selenoid/vnc:chrome_101.0</b>
     <b>docker pull selenoid/vnc:firefox_101.0</b>
     <b>docker pull selenoid/vnc:chrome_100.0</b>
+
+    Example project structure:
+
+        your_project_name (root)
+            |__infra
+                |__db
+                    |__sql
+                        |__init.sql
+                |__docker-compose.yaml
+    
 </pre>
 To work with Healenium and standard Selenium hub with nodes, use:<br/>
 <pre>
@@ -49,38 +59,7 @@ Verify the next images are <b>Up</b> and <b>Running</b>
     * aerokube/selenoid-ui:1.10.5
 </pre>
 
-### 2. Project structure
-
-    |__healenium-example-javascript (root)
-        |__infra
-            |__db
-                |__sql
-                    |__init.sql
-            |__docker-compose.yaml
-            |__docker-compose-selenium-v3.yaml
-        |__src
-            |__Healenium.Selenium
-                |__constants
-                |__pages
-                |__Properties
-                |__search
-                |__Healenium.Selenium.csproj
-                |__packages.config
-        |__tests
-            |__Healenium.Selenium.Tests
-                |__Properties
-                |__tests
-                |__Healenium.Selenium.Tests.csproj
-                |__packages.config
-            |__Healenium.SeleniumRP.Tests
-                |__Properties
-                |__tests
-                |__app.config
-                |__Healenium.SeleniumRP.Tests.csproj
-                |__packages.config
-                |__ReportPortal.config.json
-
-### 3. Create RemoteWebDriver for Healenium-Proxy
+### 2. Create RemoteWebDriver for Healenium-Proxy
 To run using Healenium create RemoteWebDriver with URL ```http://<remote webdriver host>:8085```:
 
 `let opts = new chrome.Options();
@@ -92,7 +71,7 @@ driver = await new webdriver.Builder()
 .build();`
 
 
-### 4. Run tests using Jasmine
+### 3. Run tests using Jasmine
 Add Jasmine to your package.json
 
 `npm install --save-dev jasmine`
@@ -109,7 +88,7 @@ Run your tests
 
 `npm test`
 
-### 5. Monitoring results
+### 4. Monitoring results
 You can monitor tests running if you using Healenium with Selenoid plus Selenoid Ui, use:<br/>
 <pre>
     go to <b>http://localhost:8080</b>
