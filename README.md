@@ -49,6 +49,16 @@ Create <b>/db/sql</b> folder on the same level in your project.<br/>
     Add init.sql file into ./db/sql/init.sql folder in your project via command:
 
     <b>$ curl https://raw.githubusercontent.com/healenium/healenium-client/master/example/init.sql -o init.sql</b>
+
+    Example project structure:
+
+        your_project_name (root)
+            |__infra
+                |__db
+                    |__sql
+                        |__init.sql
+                |__browsers.json
+                |__docker-compose-selenium-v3.yaml
 </pre>
 Verify the next images are <b>Up</b> and <b>Running</b>
 <pre>
