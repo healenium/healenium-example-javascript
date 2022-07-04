@@ -5,7 +5,6 @@ This repository contains automation tests on JavaScript using Healenium.
 ## How to start
 ### 1. Start Healenium Proxy from infra folder
 ```cd infra``` <br/><br/>
-To work with Healenium and Selenoid plus Selenoid Ui, use:<br/>
 
 Create <b>/db/sql</b> folder on the same level in your project.<br/>
 <pre>
@@ -21,6 +20,9 @@ Create <b>/db/sql</b> folder on the same level in your project.<br/>
                     |__sql
                         |__init.sql
 </pre>
+
+To work with Healenium and Selenoid plus Selenoid Ui, use:<br/>
+
 <pre>
     To download docker-compose.yaml file into your project use this command:
 
