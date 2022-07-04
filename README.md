@@ -19,6 +19,17 @@ To work with Healenium and standard Selenium hub with nodes, use:</br>
     To download docker-compose-selenium-v3.yaml file into your project use this command:
 
     <b>$ curl https://raw.githubusercontent.com/healenium/healenium-example-javascript/master/infra/docker-compose-selenium-v3.yaml -o docker-compose-selenium-v3.yaml</b>
+
+    Additionally downlod browsers.json file into you project use this command:
+
+    <b>curl https://raw.githubusercontent.com/healenium/healenium-example-python/master/infra/browsers.json -o browsers.json</b>
+
+    Manually pull docker images with specific versions from browsers.json:
+
+    <b>docker pull selenoid/vnc:chrome_102.0</b>
+    <b>docker pull selenoid/vnc:chrome_101.0</b>
+    <b>docker pull selenoid/vnc:firefox_101.0</b>
+    <b>docker pull selenoid/vnc:chrome_100.0</b>
 </pre>
 
 Create <b>/db/sql</b> folder on the same level in your project.</br>
