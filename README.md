@@ -3,7 +3,7 @@
 This repository contains automation tests on JavaScript using Healenium.
 
 ## How to start
-### 1. Start Healenium Proxy from infra folder
+### 1.Start Healenium Proxy from infra folder
 ```cd infra``` <br/><br/>
 
 Create <b>/db/sql</b> folder on the same level in your project.<br/>
@@ -95,7 +95,7 @@ To work with Healenium and standard Selenium hub with nodes, use:<br/>
         * selenium/node-firefox:101.0
 </pre>
 
-### 2. Create RemoteWebDriver for Healenium-Proxy
+### 2.Create RemoteWebDriver for Healenium-Proxy
 To run using Healenium create RemoteWebDriver with URL ```http://<remote webdriver host>:8085```:
 
 `let opts = new chrome.Options();
@@ -107,7 +107,7 @@ driver = await new webdriver.Builder()
 .build();`
 
 
-### 3. Run tests using Jasmine
+### 3.Run tests using Jasmine
 Add Jasmine to your package.json
 
 `npm install --save-dev jasmine`
@@ -124,7 +124,7 @@ Run your tests
 
 `npm test`
 
-### 4. Monitoring results
+### 4.Monitoring results
 You can monitor tests running if you using Healenium with Selenoid plus Selenoid Ui, use:<br/>
 <pre>
     go to <b>http://localhost:8080</b>
