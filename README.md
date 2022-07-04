@@ -31,6 +31,7 @@ To work with Healenium and Selenoid plus Selenoid Ui, use:<br/>
                 |__db
                     |__sql
                         |__init.sql
+                |__browsers.json
                 |__docker-compose.yaml
     
 </pre>
