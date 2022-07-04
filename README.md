@@ -38,11 +38,22 @@ To work with Healenium and Selenoid plus Selenoid Ui, use:<br/>
 </pre>
 To work with Healenium and standard Selenium hub with nodes, use:<br/>
 <pre>
-    <b>docker-compose -f docker-compose-selenium-v3.yaml up -d</b>
-
     To download docker-compose-selenium-v3.yaml file into your project use this command:
 
     <b>$ curl https://raw.githubusercontent.com/healenium/healenium-example-javascript/master/infra/docker-compose-selenium-v3.yaml -o docker-compose-selenium-v3.yaml</b>
+
+    Example project structure:
+
+        your_project_name (root)
+            |__infra
+                |__db
+                    |__sql
+                        |__init.sql
+                |__docker-compose-selenium-v3.yaml
+
+    Command to run docker-compose-selenium-v3.yaml
+
+        <b>docker-compose -f docker-compose-selenium-v3.yaml up -d</b>
 </pre>
 
 Create <b>/db/sql</b> folder on the same level in your project.<br/>
