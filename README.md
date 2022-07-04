@@ -85,8 +85,10 @@ To work with Healenium and standard Selenium hub with nodes, use:<br/>
         * healenium/hlm-backend:3.2.3
         * healenium/hlm-selector-imitator:1.1
         * healenium/hlm-proxy:1.0.0
-        * healenium/hlm-selenoid:0.1.0
-        * aerokube/selenoid-ui:1.10.5
+        * selenium/hub:4.3.0
+        * selenium/node-chrome:103.0
+        * selenium/node-edge:103.0
+        * selenium/node-firefox:101.0
 </pre>
 
 ### 2. Create RemoteWebDriver for Healenium-Proxy
