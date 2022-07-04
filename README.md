@@ -98,14 +98,27 @@ To work with Healenium and standard Selenium hub with nodes, use:<br/>
 ### 2.Create RemoteWebDriver for Healenium-Proxy
 To run using Healenium create RemoteWebDriver with URL ```http://<remote webdriver host>:8085```:
 
-`let opts = new chrome.Options();
-opts.addArguments('no-sandbox')
-driver = await new webdriver.Builder()
-.withCapabilities(webdriver.Capabilities.chrome())
-.usingServer('http://localhost:8085')
-.setChromeOptions(opts)
-.build();`
+<pre>
+const selenium = require("selenium-webdriver");
 
+const NODE_URL = "http://127.0.0.1:8085";
+
+let args = [
+    "--no-sandbox",
+    "--disable-dev-shm-usage"
+];
+
+let chromeCapabilities = selenium.Capabilities.chrome()
+    .set('chromeOptions', { args })
+    .set("enableVNC", true)
+    .set("sessionTimeout", "30m");
+
+let builder = new selenium.Builder()
+    .forBrowser('chrome')
+    .withCapabilities(chromeCapabilities);
+
+let driver = await builder.usingServer(NODE_URL).build();
+</pre>
 
 ### 3.Run tests using Jasmine
 Add Jasmine to your package.json
