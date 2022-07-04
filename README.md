@@ -4,8 +4,8 @@ This repository contains automation tests on JavaScript using Healenium.
 
 ## How to start
 ### 1. Start Healenium Proxy from infra folder
-```cd infra``` </br></br>
-To work with Healenium and Selenoid plus Selenoid Ui, use:</br>
+```cd infra``` <br/><br/>
+To work with Healenium and Selenoid plus Selenoid Ui, use:<br/>
 <pre>
     <b>docker-compose up -d</b>
 
@@ -24,7 +24,7 @@ To work with Healenium and Selenoid plus Selenoid Ui, use:</br>
     <b>docker pull selenoid/vnc:firefox_101.0</b>
     <b>docker pull selenoid/vnc:chrome_100.0</b>
 </pre>
-To work with Healenium and standard Selenium hub with nodes, use:</br>
+To work with Healenium and standard Selenium hub with nodes, use:<br/>
 <pre>
     <b>docker-compose -f docker-compose-selenium-v3.yaml up -d</b>
 
@@ -33,7 +33,7 @@ To work with Healenium and standard Selenium hub with nodes, use:</br>
     <b>$ curl https://raw.githubusercontent.com/healenium/healenium-example-javascript/master/infra/docker-compose-selenium-v3.yaml -o docker-compose-selenium-v3.yaml</b>
 </pre>
 
-Create <b>/db/sql</b> folder on the same level in your project.</br>
+Create <b>/db/sql</b> folder on the same level in your project.<br/>
 <pre>
     Add init.sql file into ./db/sql/init.sql folder in your project via command:
 
@@ -110,7 +110,7 @@ Run your tests
 `npm test`
 
 ### 5. Monitoring results
-You can monitor tests running if you using Healenium with Selenoid plus Selenoid Ui, use:</br>
+You can monitor tests running if you using Healenium with Selenoid plus Selenoid Ui, use:<br/>
 <pre>
     go to <b>http://localhost:8080</b>
 </pre>
