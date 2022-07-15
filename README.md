@@ -1,83 +1,152 @@
 # JavaScript Example with Healenium
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)<br/>
 This repository contains automation tests on JavaScript using Healenium.
 
 ## How to start
-### 1. Start Healenium Proxy from infra folder
+### 1.Start Healenium Proxy from infra folder
+```cd infra``` <br/><br/>
 
-```cd infra```
+Create <b>/db/sql</b> folder on the same level in your project.<br/>
+<pre>
+    Add init.sql file into ./db/sql/init.sql folder in your project via command:
 
-```docker-compose up -d```
+    <b>$ curl https://raw.githubusercontent.com/healenium/healenium-client/master/example/init.sql -o init.sql</b>
 
-To download this file into your project use this command:
+    Example project structure:
 
-```$ curl https://raw.githubusercontent.com/healenium/healenium-example-javascript/master/infra/docker-compose.yml -o docker-compose.yml```
+        your_project_name (root)
+            |__infra
+                |__db
+                    |__sql
+                        |__init.sql
+</pre>
 
-Create /db/sql folder on the same level in your project. Add init.sql file into ./db/sql/init.sql folder in your project via command:
+To work with Healenium and Selenoid plus Selenoid Ui, use:<br/>
 
-```$ curl https://raw.githubusercontent.com/healenium/healenium-client/master/example/init.sql -o init.sql```
+<pre>
+    To download docker-compose.yaml file into your project use this command:
 
-Verify the next images are up and running:
-* ```healenium/hlm-proxy:0.2.1```
-* ```healenium/hlm-backend:3.2.0```
-* ```healenium/hlm-selenium-3-standalone-tigervnc:0.1.1```
-* ```healenium/hlm-selector-imitator:1```
-* ```postgres:11-alpine```
+    <b>$ curl https://raw.githubusercontent.com/healenium/healenium-example-javascript/master/infra/docker-compose.yaml -o docker-compose.yaml</b>
 
-### 2. Project structure
+    Additionally downlod browsers.json file into you project use this command:
 
-    |__root folder
-        |__infra
-            |__db
-                |__init.sql
-            |__docker-compose.yaml
-        |__src
-            |__com.epam.healenium
-                |__selenium
-                    |__page object
-                        |__test_env
-                            |__test_env_page.js
-                        |__base_page.js
-                        |__callback_page.js
-                    |__strategy
-                        |__locators_type.js
-                        |__strategy.js
-        |__tests
-            |__com.epam.healenium
-                |__jasmine
-                    |__css_test.mjs
-                    |__semantic-locators_test.mjs
-                    |__xpath_test.mjs
+    <b>curl https://raw.githubusercontent.com/healenium/healenium-example-python/master/infra/browsers.json -o browsers.json</b>
 
-### 3. Create RemoteWebDriver for Healenium-Proxy
+    Manually pull docker images with specific versions from browsers.json:
+
+    <b>docker pull selenoid/vnc:chrome_102.0</b>
+    <b>docker pull selenoid/vnc:chrome_101.0</b>
+    <b>docker pull selenoid/vnc:firefox_101.0</b>
+    <b>docker pull selenoid/vnc:chrome_100.0</b>
+
+    Example project structure:
+
+        your_project_name (root)
+            |__infra
+                |__db
+                    |__sql
+                        |__init.sql
+                |__browsers.json
+                |__docker-compose.yaml
+
+    Command to run docker-compose.yaml
+
+        <b>docker-compose up -d</b>
+
+    <b>ATTENTION</b>
+    Verify the next images are <b>Up</b> and <b>Running</b>
+        * postgres:14.2-bullseye
+        * healenium/hlm-backend:3.2.3
+        * healenium/hlm-selector-imitator:1.1
+        * healenium/hlm-proxy:1.0.0
+        * healenium/hlm-selenoid:0.1.0
+        * aerokube/selenoid-ui:1.10.5
+</pre>
+
+To work with Healenium and standard Selenium hub with nodes, use:<br/>
+
+<pre>
+    To download docker-compose-selenium-v3.yaml file into your project use this command:
+
+    <b>$ curl https://raw.githubusercontent.com/healenium/healenium-example-javascript/master/infra/docker-compose-selenium-v3.yaml -o docker-compose-selenium-v3.yaml</b>
+
+    Example project structure:
+
+        your_project_name (root)
+            |__infra
+                |__db
+                    |__sql
+                        |__init.sql
+                |__docker-compose-selenium-v3.yaml
+
+    Command to run docker-compose-selenium-v3.yaml
+
+        <b>docker-compose -f docker-compose-selenium-v3.yaml up -d</b>
+
+    <b>ATTENTION</b>
+    Verify the next images are <b>Up</b> and <b>Running</b>
+        * postgres:14.2-bullseye
+        * healenium/hlm-backend:3.2.3
+        * healenium/hlm-selector-imitator:1.1
+        * healenium/hlm-proxy:1.0.0
+        * selenium/hub:4.3.0
+        * selenium/node-chrome:103.0
+        * selenium/node-edge:103.0
+        * selenium/node-firefox:101.0
+</pre>
+
+### 2.Create RemoteWebDriver for Healenium-Proxy
 To run using Healenium create RemoteWebDriver with URL ```http://<remote webdriver host>:8085```:
 
-`let opts = new chrome.Options();
-opts.addArguments('no-sandbox')
-driver = await new webdriver.Builder()
-.withCapabilities(webdriver.Capabilities.chrome())
-.usingServer('http://localhost:8085')
-.setChromeOptions(opts)
-.build();`
+<pre>
+const selenium = require("selenium-webdriver");
 
+const NODE_URL = "http://127.0.0.1:8085";
 
-### 4. Run tests using Jasmine
+let args = [
+    "--no-sandbox",
+    "--disable-dev-shm-usage"
+];
+
+let chromeCapabilities = selenium.Capabilities.chrome()
+    .set('chromeOptions', { args })
+    .set("enableVNC", true)
+    .set("sessionTimeout", "30m");
+
+let builder = new selenium.Builder()
+    .forBrowser('chrome')
+    .withCapabilities(chromeCapabilities);
+
+let driver = await builder.usingServer(NODE_URL).build();
+</pre>
+
+### 3.Run tests using Jasmine
 Add Jasmine to your package.json
 
-`npm install --save-dev jasmine`
+<pre>
+npm install --save-dev jasmine
+</pre>
 
 Initialize Jasmine in your project
 
-`npx jasmine init`
+<pre>
+npx jasmine init
+</pre>
 
 Set jasmine as your test script in your package.json
 
-`"scripts": { "test": "jasmine" }`
+<pre>
+"scripts": { "test": "jasmine" }
+</pre>
 
 Run your tests
 
-`npm test`
+<pre>
+npm test
+</pre>
 
-### 5. Monitoring results
-You can monitor tests running. To do this go to ```http://<remote webdriver host>:8086```
-
-![img.png](img.png)
+### 4.Monitoring results
+You can monitor tests running if you using Healenium with Selenoid plus Selenoid Ui, use:<br/>
+<pre>
+    go to <b>http://localhost:8080</b>
+</pre>
