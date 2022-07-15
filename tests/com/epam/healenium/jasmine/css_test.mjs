@@ -10,9 +10,10 @@ describe('Tests healing locators using different CSS selectors', function () {
     let driver;
     let testEnv;
     let callBack;
-    beforeAll(async function () {
+    beforeEach(async function () {
         let opts = new chrome.Options();
-        opts.addArguments('no-sandbox')
+        opts.addArguments('--no-sandbox')
+        opts.addArguments('--disable-dev-shm-usage')
         driver = await new webdriver.Builder()
             .withCapabilities(webdriver.Capabilities.chrome())
             .usingServer('http://localhost:8085')
@@ -23,7 +24,7 @@ describe('Tests healing locators using different CSS selectors', function () {
         callBack = await new Callback_page(driver);
     })
 
-    afterAll(async function () {
+    afterEach(async function () {
         await driver.quit();
     })
 
