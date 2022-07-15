@@ -1,5 +1,5 @@
 {
-  "spec_dir": "spec",
+  "spec_dir": "tests/com/epam/healenium/",
   "spec_files": [
     "**/*[tT]est.?(m)js"
   ],
