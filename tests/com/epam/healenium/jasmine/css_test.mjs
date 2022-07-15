@@ -27,7 +27,7 @@ describe('Tests healing locators using different CSS selectors', function () {
         await driver.quit();
     })
 
-    it('CSS Attribute - Healing locators _1', async function () {
+    describe('CSS Attribute - Healing locators _1', async function () {
         await callBack.open();
 
         await callBack.clickAddSquareButton();
