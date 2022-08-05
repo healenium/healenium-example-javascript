@@ -59,27 +59,25 @@ Verify the next images are <b>Up</b> and <b>Running</b>
 
 To run using Healenium create RemoteWebDriver with URL ```http://<remote webdriver host>:8085```:
 
-<pre>
-const selenium = require("selenium-webdriver");
+```javascript
+    const selenium = require("selenium-webdriver");
+    const NODE_URL = "http://localhost:8085";
 
-const NODE_URL = "http://127.0.0.1:8085";
+    let args = [
+        "--no-sandbox",
+        "--disable-dev-shm-usage"
+    ];
 
-let args = [
-    "--no-sandbox",
-    "--disable-dev-shm-usage"
-];
+    let chromeCapabilities = selenium.Capabilities.chrome()
+        .set('chromeOptions', { args })
+        .set("enableVNC", true);
 
-let chromeCapabilities = selenium.Capabilities.chrome()
-    .set('chromeOptions', { args })
-    .set("enableVNC", true)
-    .set("sessionTimeout", "30m");
+    let builder = new selenium.Builder()
+        .forBrowser('chrome')
+        .withCapabilities(chromeCapabilities);
 
-let builder = new selenium.Builder()
-    .forBrowser('chrome')
-    .withCapabilities(chromeCapabilities);
-
-let driver = await builder.usingServer(NODE_URL).build();
-</pre>
+    let driver = await builder.usingServer(NODE_URL).build();
+```
 
 ### 3. Run tests using Jasmine
 
