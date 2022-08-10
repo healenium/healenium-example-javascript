@@ -20,9 +20,9 @@ describe('Tests healing locators using different semantic locators', function ()
         testEnv = await new Test_env_page(driver);
     })
 
-    afterAll(async function () {
-        await driver.quit();
-    })
+    // afterAll(async function () {
+    //     await driver.quit();
+    // })
 
     it('Find element by Id - Healing locators _1', async function () {
         await testEnv.open();

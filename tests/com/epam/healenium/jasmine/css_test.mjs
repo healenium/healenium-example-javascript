@@ -24,9 +24,9 @@ describe('Tests healing locators using different CSS selectors', function () {
         callBack = await new Callback_page(driver);
     })
 
-    afterAll(async function () {
-        await driver.quit();
-    })
+    // afterAll(async function () {
+    //     await driver.quit();
+    // })
 
     it('CSS Attribute - Healing locators _1', async function () {
         await callBack.open();
