@@ -51,7 +51,7 @@ docker-compose -f docker-compose-selenium-grid.yaml up -d
 Verify the next images are <b>Up</b> and <b>Running</b>
 - `postgres-db` (PostgreSQL database to store etalon selector / healing / report)
 - `hlm-proxy` (Proxy client request to Selenium server)
-- `hlm-bacand` (CRUD service)
+- `hlm-backend` (CRUD service)
 - `selector imitator` (Convert healed locator to convenient format)
 - `selenoid`/`selenium-grid` (Selenium server)
 
@@ -60,23 +60,14 @@ Verify the next images are <b>Up</b> and <b>Running</b>
 To run using Healenium create RemoteWebDriver with URL ```http://<remote webdriver host>:8085```:
 
 ```javascript
-    const selenium = require("selenium-webdriver");
-    const NODE_URL = "http://localhost:8085";
-
-    let args = [
-        "--no-sandbox",
-        "--disable-dev-shm-usage"
-    ];
-
-    let chromeCapabilities = selenium.Capabilities.chrome()
-        .set('chromeOptions', { args })
-        .set("enableVNC", true);
-
-    let builder = new selenium.Builder()
-        .forBrowser('chrome')
-        .withCapabilities(chromeCapabilities);
-
-    let driver = await builder.usingServer(NODE_URL).build();
+    let opts = new chrome.Options();
+    opts.addArguments('--no-sandbox')
+    opts.addArguments('--disable-dev-shm-usage')
+    driver = await new webdriver.Builder()
+        .withCapabilities(webdriver.Capabilities.chrome())
+        .usingServer('http://localhost:8085')
+        .setChromeOptions(opts)
+        .build();
 ```
 
 ### 3. Run tests using Jasmine
