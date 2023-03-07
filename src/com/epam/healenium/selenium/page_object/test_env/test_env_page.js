@@ -29,6 +29,15 @@ class Test_env_page extends Base_page {
 
         await this.healLocator.getStrategy().doAction(locator, text);
     }
+
+    async fillTestElementByWait(type, locator, milliseconds) {
+        this.healLocator = await new StrategyManager();
+        this.testType = await new Strategy(type, this.driver);
+        this.healLocator.setStrategy(this.testType);
+        const result = await this.healLocator.getStrategy().doActionByWait(locator, milliseconds);
+        expect(result).toBe(true);
+
+    }    
 }
 
 export {Test_env_page};
