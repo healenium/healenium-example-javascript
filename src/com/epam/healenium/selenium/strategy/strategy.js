@@ -1,4 +1,5 @@
 import {By} from "selenium-webdriver";
+import webdriver from 'selenium-webdriver';
 import {Locator_type} from "./locator_type.js";
 
 class StrategyManager {
@@ -50,5 +51,46 @@ class Strategy {
                 await this._driver.findElement(By.tagName(locator)).sendKeys(text);
                 break;
         }
+    }
+
+    async doActionByWait(locator, milliseconds) {
+        var element;
+        switch (this._name) {
+            case (Locator_type.XPath):
+                element = By.xpath(locator);
+                break;
+            case (Locator_type.Css):
+                element = By.css(locator);
+                break;
+            case Locator_type.Id:
+                element = By.id(locator);
+                break;
+            case Locator_type.ClassName:
+                element = By.className(locator);
+                break;
+            case Locator_type.LinkText:
+                element = By.linkText(locator);
+                break;
+            case Locator_type.Name:
+                element = By.name(locator);
+                break;
+            case Locator_type.PartialLinkText:
+                element = By.partialLinkText(locator);
+                break;
+            default:
+                element = By.id(locator);
+                break;
+        }
+        return this.isElementDisplayed(element, milliseconds);
+    }
+
+    async isElementDisplayed(element, milliseconds) {
+        return await this._driver.wait(webdriver.until.elementLocated(element), milliseconds)
+            .then(el => {
+                return el.isDisplayed();
+            }, function (error) {
+                console.log(error);
+                return false;
+            });
     }
 }
