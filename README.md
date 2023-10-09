@@ -25,25 +25,15 @@ Go into healenium folder
 cd healenium
 ``` 
 
-#### Run Healenium with Selenoid:
-
-> Note: `browsers.json` consists of target browsers and appropriate versions.
-> Before run healenium you have to manually pull selenoid browser docker images with version specified in browsers.json
-
-Example pull selenoid chrome image:
-```sh
-docker pull selenoid/vnc:chrome_102.0
-```
-Full list of browser images you can find [here](https://hub.docker.com/u/selenoid)
-
-Run healenium with Selenoid:
+#### Run Healenium with Selenium-Grid:
 ```sh
 docker-compose up -d
 ```
 
-#### Run Healenium with Selenium-Grid:
+#### Run Healenium with Selenoid:
+
 ```sh
-docker-compose -f docker-compose-selenium-grid.yaml up -d
+docker-compose -f docker-compose-selenoid.yaml up -d
 ```
 
 <b>ATTENTION</b>
