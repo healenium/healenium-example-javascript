@@ -50,14 +50,18 @@ Verify the next images are <b>Up</b> and <b>Running</b>
 To run using Healenium create RemoteWebDriver with URL ```http://<remote webdriver host>:8085```:
 
 ```javascript
-    let opts = new chrome.Options();
-    opts.addArguments('--no-sandbox')
-    opts.addArguments('--disable-dev-shm-usage')
     driver = await new webdriver.Builder()
         .withCapabilities(webdriver.Capabilities.chrome())
         .usingServer('http://localhost:8085')
-        .setChromeOptions(opts)
         .build();
+```
+
+To temporarily disable the healing mechanism for certain sections of your code, use the following syntax:
+
+```javascript
+    await this.driver.executeScript("disable_healing_true");
+    ... // Your code that does not require healing
+    await this.driver.executeScript("disable_healing_false");
 ```
 
 ### 3. Run tests using Jasmine

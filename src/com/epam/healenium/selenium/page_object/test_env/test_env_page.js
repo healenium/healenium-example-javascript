@@ -22,6 +22,14 @@ class Test_env_page extends Base_page {
         return this;
     }
 
+    async clickButton(btn) {
+        await this.driver.findElement(btn).click();
+    }
+
+    async executeScript(script) {
+        await this.driver.executeScript(script);
+    }
+
     async fillTestElement(type, locator, text) {
         this.healLocator = await new StrategyManager();
         this.testType = await new Strategy(type, this.driver);
