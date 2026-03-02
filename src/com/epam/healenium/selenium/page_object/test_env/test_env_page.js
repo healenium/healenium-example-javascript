@@ -4,7 +4,7 @@ import {Strategy, StrategyManager} from "../../strategy/strategy.js";
 import {Base_page} from "../base_page.js";
 
 class Test_env_page extends Base_page {
-    testPage = "https://elenastepuro.github.io/test_env/index.html";
+    testPage = "https://healenium.github.io/healenium-test-env/index.html";
 
     submitButton = By.id("Submit");
 
